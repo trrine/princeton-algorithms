@@ -13,6 +13,7 @@ public class WeightedQuickUnionUF {
             size[i] = 1;
         }
     }
+    
     public int count() {
         return count;
     }
