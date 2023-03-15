@@ -13,12 +13,13 @@ public class WeightedQuickUnionUF {
             size[i] = 1;
         }
     }
-    
     public int count() {
         return count;
     }
 
-    private int root(int i) { // find
+    private int root(int i) { // find parent
+        validate(i);
+    
         while (i != id[i]) i = id[i];
         return i;
     }
@@ -27,7 +28,18 @@ public class WeightedQuickUnionUF {
         return root(p) == root(q);
     }
 
+    private void validate(int i) {
+        int n = id.length;
+        
+        if (i < 0 || i >= n) {
+            throw new IllegalArgumentException("index " + i + " is not between 0 and " + (n-1));
+        }
+    }
+
     public void union(int p, int q) {
+        validate(p);
+        validate(q);
+
         int rootP = root(p);
         int rootQ = root(q);
 
