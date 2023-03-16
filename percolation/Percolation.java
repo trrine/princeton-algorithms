@@ -1,3 +1,9 @@
+/* *****************************************************************************
+ *  Name:              Trine Herrmann
+ *  Coursera User ID:
+ *  Last modified:
+ **************************************************************************** */
+
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
@@ -31,6 +37,9 @@ public class Percolation {
 
     // opens the site (row, col) if it is not open already
     public void open(int row, int col) {
+        validate(row);
+        validate(col);
+
         if (!isOpen(row, col)) {
             // adjust to zero-based indexing
             row--;
@@ -103,6 +112,9 @@ public class Percolation {
 
     // is the site (row, col) open?
     public boolean isOpen(int row, int col) {
+        validate(row);
+        validate(col);
+
         // adjust to zero-based indexing
         row--;
         col--;
@@ -111,6 +123,9 @@ public class Percolation {
 
     // is the site (row, col) full?
     public boolean isFull(int row, int col) {
+        validate(row);
+        validate(col);
+
         if (!isOpen(row, col)) { // site must be open to be full
             return false;
         }
@@ -134,6 +149,12 @@ public class Percolation {
         return ufOpen.find(virtualTop) == ufOpen.find(virtualBottom);
     }
 
+    private void validate(int i) {
+        if (i < 1 || i > n) {
+            throw new IllegalArgumentException("Index must be between 1 and " + n);
+        }
+    }
+
     // test client (optional)
 
     public static void main(String[] args) {
@@ -153,5 +174,6 @@ public class Percolation {
         System.out.println("Percolates: " + percolation.percolates());
         System.out.println("Open sites:" + percolation.numberOfOpenSites());
         System.out.println("2,1 full: " + percolation.isFull(2, 1));
+        // percolation.open(0, 1);
     }
 }
