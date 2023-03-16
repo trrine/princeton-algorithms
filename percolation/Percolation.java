@@ -1,9 +1,3 @@
-/* *****************************************************************************
- *  Name:              Trine Herrmann
- *  Coursera User ID:
- *  Last modified:
- **************************************************************************** */
-
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
