@@ -2,6 +2,7 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdStats;
 
 public class PercolationStats {
+    private static final double CONFIDENCE_95 = 1.96;
     private int trials;
     private double[] percolationThresholds;
 
@@ -9,7 +10,7 @@ public class PercolationStats {
     public PercolationStats(int n, int trials) {
         if (n <= 0 || trials <= 0)
             throw new IllegalArgumentException("n and trials must be larger than 0");
-        
+
         this.trials = trials;
         percolationThresholds = new double[trials];
 
@@ -32,7 +33,7 @@ public class PercolationStats {
                 percolation.open(row, col);
             }
 
-            // save open fraction as estimate of percolation threshold
+            // save open fraction as estimation of percolation threshold
             percolationThresholds[i] = (double) percolation.numberOfOpenSites() / (n * n);
 
         }
@@ -50,12 +51,12 @@ public class PercolationStats {
 
     // low endpoint of 95% confidence interval
     public double confidenceLo() {
-        return mean() - (1.96 * stddev()) / Math.sqrt(trials);
+        return mean() - (CONFIDENCE_95 * stddev()) / Math.sqrt(trials);
     }
 
     // high endpoint of 95% confidence interval
     public double confidenceHi() {
-        return mean() + (1.96 * stddev()) / Math.sqrt(trials);
+        return mean() + (CONFIDENCE_95 * stddev()) / Math.sqrt(trials);
     }
 
     // test client
