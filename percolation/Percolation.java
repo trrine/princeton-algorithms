@@ -50,7 +50,6 @@ public class Percolation {
     private void connectAdjacentOpen(int row, int col) {
         int site = row * n + col;
 
-
         // if site is in the top row, connect to virtual top
         if (row == 0) {
             ufOpen.union(virtualTop, site);
