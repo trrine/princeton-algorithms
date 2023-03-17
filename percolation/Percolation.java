@@ -26,7 +26,6 @@ public class Percolation {
 
         virtualTop = n * n;
         virtualBottom = n * n + 1;
-
     }
 
     // opens the site (row, col) if it is not open already
