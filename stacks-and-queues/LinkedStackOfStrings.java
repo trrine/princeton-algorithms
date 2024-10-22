@@ -33,7 +33,7 @@ public class LinkedStackOfStrings {
     
     // Testing    
     public static void main(String[] args) {
-        StackOfStrings stack = new StackOfStrings();
+        LinkedStackOfStrings stack = new LinkedStackOfStrings();
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter a value or type - to get the last value:");
