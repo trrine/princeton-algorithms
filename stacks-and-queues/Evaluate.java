@@ -1,4 +1,5 @@
 // Simple arithmetic expression evaluator program to demonstrate a use case for stacks
+// (Dijkstra's two stack algorithm)
 
 import java.util.Scanner;
 
